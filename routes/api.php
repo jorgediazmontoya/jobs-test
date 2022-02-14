@@ -26,8 +26,8 @@ Route::get('/tenants', function (Request $request) {
 
 Route::post('/users', function (Request $request) {
     $user = new User($request->all());
-    event(new CreateUser ($user));
-    //UserJob::dispatch($user);
+    //event(new CreateUser ($user));
+    UserJob::dispatch($user);
     return $user;
 });
 
